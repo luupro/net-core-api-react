@@ -180,7 +180,7 @@ export const Form: FC<Props> = ({
           >
             <PrimaryButton type="submit">{submitCaption}</PrimaryButton>
           </div>
-          {submitError && (
+          {showError && (
             <p
               css={css`
                 color: red;

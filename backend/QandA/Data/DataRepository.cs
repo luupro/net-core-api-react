@@ -16,15 +16,13 @@ namespace QandA.Data
 
         public void DeleteQuestion(int questionId)
         {
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                connection.Open();
-                connection.Execute(
-                @"EXEC dbo.Question_Delete
+            using var connection = new SqlConnection(_connectionString);
+            connection.Open();
+            connection.Execute(
+            @"EXEC dbo.Question_Delete
                     @QuestionId = @QuestionId",
-                new { QuestionId = questionId }
-                );
-            }
+            new { QuestionId = questionId }
+            );
         }
 
         public AnswerGetResponse GetAnswer(int answerId)

@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/core';
-import { fontFamily, fontSize, gray1, gray2, gray5 } from './Styles';
-import { UserIcon } from './Icons';
 import { ChangeEvent, FC, useState, FormEvent } from 'react';
+import { css, jsx } from '@emotion/core';
+import { UserIcon } from './Icons';
+import { fontFamily, fontSize, gray1, gray2, gray5 } from './Styles';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 
 export const Header: FC<RouteComponentProps> = ({ history, location }) => {

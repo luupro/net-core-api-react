@@ -8,15 +8,22 @@ import { searchQuestions, QuestionData } from './QuestionsData';
 
 export const SearchPage: FC<RouteComponentProps> = ({ location }) => {
   const [questions, setQuestions] = useState<QuestionData[]>([]);
+
   const searchParams = new URLSearchParams(location.search);
   const search = searchParams.get('criteria') || '';
 
   useEffect(() => {
+    let cancelled = false;
     const doSearch = async (criteria: string) => {
       const foundResults = await searchQuestions(criteria);
-      setQuestions(foundResults);
+      if (!cancelled) {
+        setQuestions(foundResults);
+      }
     };
     doSearch(search);
+    return () => {
+      cancelled = true;
+    };
   }, [search]);
 
   return (

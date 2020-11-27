@@ -2,7 +2,7 @@
 
 namespace QandA.Data
 {
-    interface IQuestionCache
+    public interface IQuestionCache
     {
         QuestionGetSingleResponse Get(int questionId);
         void Remove(int questionId);

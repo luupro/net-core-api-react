@@ -99,7 +99,6 @@ namespace QandA.Controllers
             }, savedQuestion);
         }
 
-        [Authorize(Policy = "MustBeQuestionAuthor")]
         [HttpPut("{questionId}")]
         public async Task<ActionResult<QuestionGetSingleResponse>> PutQuestion(int questionId, QuestionPutRequest questionPutRequest)
         {
@@ -115,7 +114,7 @@ namespace QandA.Controllers
             return savedQuestion;
         }
 
-        [Authorize]
+        [Authorize(Policy = "MustBeQuestionAuthor")]
         [HttpDelete("{questionId}")]
         public ActionResult DeleteQuestion(int questionId)
         {

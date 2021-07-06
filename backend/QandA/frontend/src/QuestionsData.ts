@@ -81,19 +81,10 @@ const questions: QuestionData[] = [
 ];
 
 export const getUnansweredQuestions = async (): Promise<QuestionData[]> => {
-  try {
-    const result = await http<undefined, QuestionDataFromServer[]>({
-      path: '/questions/unanswered',
-    });
-    if (result.parsedBody) {
-      return result.parsedBody.map(mapQuestionFromServer);
-    } else {
-      return [];
-    }
-  } catch (ex) {
-    console.error(ex);
-    return [];
-  }
+  let unansweredQuestions: QuestionData[] = [];
+  // TODO - call api/questions/unanswered
+  // TODO - put response body in unansweredQuestions
+  return unansweredQuestions;
 };
 
 const wait = (ms: number): Promise<void> => {
